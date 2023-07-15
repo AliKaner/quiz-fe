@@ -1,5 +1,5 @@
 import { register } from '@/api/routes';
-import { MouseEventHandler, useState } from 'react';
+import {  useState } from 'react';
 
 export const RegisterForm: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -18,7 +18,7 @@ export const RegisterForm: React.FC = () => {
   };
 
   return (
-    <div className="flex-1">
+    <div className="flex flex-col items-center align-center justify-items-center bg-primary-light p-8 rounded shadow-2xl ">
       <div className="mb-4">
         <label htmlFor="user  name" className="block text-gray-700 font-bold mb-2">
           Username
@@ -38,13 +38,13 @@ export const RegisterForm: React.FC = () => {
         <input
           type="password"
           id="password"
-          className="w-full border border-gray-300 p-2 rounded"
+          className="w-full border border-gray-300 p-2 "
           value={password}
           onChange={handlePasswordChange}
         />
       </div>
       <button
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        className="bg-secondary w-full p-2 rounded hover:bg-primary text-white"
         onClick={handleSubmit}
       >
         Sign Up

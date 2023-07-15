@@ -31,9 +31,9 @@ const CreationForm: React.FC<CreationFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form className="max-w-sm mx-auto p-4 bg-white shadow-md rounded" onSubmit={handleSubmit}>
+    <form className=" p-8 bg-white shadow-xl rounded" onSubmit={handleSubmit}>
       <div className="mb-4">
-        <label htmlFor="question" className="block text-gray-700 font-bold mb-2">
+        <label htmlFor="question" className="block text-xl text-gray-700 font-bold mb-2">
           Question
         </label>
         <input
@@ -45,7 +45,7 @@ const CreationForm: React.FC<CreationFormProps> = ({ onSubmit }) => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="answerOne" className="block text-gray-700 font-bold mb-2">
+        <label htmlFor="answerOne" className=" text-xl block text-gray-700 font-bold mb-2">
           Answer One
         </label>
         <input
@@ -57,7 +57,7 @@ const CreationForm: React.FC<CreationFormProps> = ({ onSubmit }) => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="answerTwo" className="block text-gray-700 font-bold mb-2">
+        <label htmlFor="answerTwo" className=" text-xl block text-gray-700 font-bold mb-2">
           Answer Two
         </label>
         <input
@@ -70,7 +70,7 @@ const CreationForm: React.FC<CreationFormProps> = ({ onSubmit }) => {
       </div>
       <button
         type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full"
       >
         Create
       </button>

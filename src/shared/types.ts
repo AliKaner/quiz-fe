@@ -5,5 +5,5 @@ export type AnswerType = {
 
 export type QuestionType = {
     text: string;
-    answers: AnswerType[];
+    answers: string[];
 }
