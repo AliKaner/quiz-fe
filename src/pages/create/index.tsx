@@ -1,4 +1,3 @@
-import Layout from "@/App";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
@@ -13,7 +12,7 @@ export default function Home() {
     }
 
     return (
-        <Layout>
+        <div>
             <Header>
                 <HomeButton/>
             </Header>
@@ -22,6 +21,6 @@ export default function Home() {
                <QuestionForm onSubmit={createQuestion} />
             </Body>
 
-        </Layout>
+        </div>
     )
 }

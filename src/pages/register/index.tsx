@@ -1,4 +1,3 @@
-import Layout from "@/App";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
@@ -7,7 +6,7 @@ import { Title } from "@/components/Title";
 
 export default function Auth() {
     return (
-        <Layout>
+        <div>
             <Header> 
                 <HomeButton/>
             </Header>
@@ -16,7 +15,7 @@ export default function Auth() {
                     text="REGISTER" />
                 <RegisterForm />
             </Body>
-        </Layout>
+        </div>
     );
 
 }

@@ -1,4 +1,3 @@
-import Layout from "@/App";
 import { getQuestion } from "@/api/routes";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
@@ -27,13 +26,13 @@ export default function Play() {
     };
 
     return (
-        <Layout>
+        <div>
             <Header>
                 <HomeButton />
             </Header>
             <Body>
                 <Question question={currentQuestion} />
             </Body>
-        </Layout>
+        </div>
     );
 }

@@ -1,11 +1,10 @@
-import Layout from "@/App";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
 import { PathButton } from "@/components/RouterButton";
 
 export default function Home() {
     return (
-        <Layout>
+        <div>
             <Header>
             </Header>
             <Body>
@@ -21,6 +20,6 @@ export default function Home() {
                 </div>
             </Body>
 
-        </Layout>
+        </div>
     )
 }
