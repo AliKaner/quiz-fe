@@ -37,7 +37,15 @@ export const createQuestion = async (
     });
 }
 
-export const getQuestion = async () => {
-    const response = await api.get('/quiz');
+export const getQuestionPrivate = async ({slug,
+} : {
+  slug:string
+}) => {
+    const response = await api.get(`/quiz/${slug}`);
+    return response;
+}
+
+export const getQuestionAll = async () => {
+    const response = await api.get(`/quiz`);
     return response;
 }
