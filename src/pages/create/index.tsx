@@ -1,3 +1,4 @@
+import RootLayout from "@/app/_app";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
@@ -12,15 +13,15 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <RootLayout>
             <Header>
-                <HomeButton/>
+                <HomeButton />
             </Header>
             <Body>
-                <Title text="ASK QUESTIONS"/>
-               <QuestionForm onSubmit={createQuestion} />
+                <Title text="ASK QUESTIONS" />
+                <QuestionForm onSubmit={createQuestion} />
             </Body>
 
-        </div>
+        </RootLayout>
     )
 }

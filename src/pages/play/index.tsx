@@ -5,6 +5,7 @@ import { Question } from "@/components/Question";
 import { QuestionType } from "@/shared/types";
 import { useState, useEffect } from "react";
 import HomeButton from "@/components/HomeButton";
+import RootLayout from "@/app/_app";
 
 export default function Play() {
     const [currentQuestion, setCurrentQuestion] = useState<QuestionType>({
@@ -26,13 +27,13 @@ export default function Play() {
     };
 
     return (
-        <div>
+        <RootLayout>
             <Header>
                 <HomeButton />
             </Header>
             <Body>
                 <Question question={currentQuestion} />
             </Body>
-        </div>
+        </RootLayout>
     );
 }

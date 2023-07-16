@@ -1,25 +1,30 @@
+import RootLayout from "@/app/_app";
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
+import HomeButton from "@/components/HomeButton";
 import { PathButton } from "@/components/RouterButton";
+import { Title } from "@/components/Title";
 
 export default function Home() {
     return (
-        <div>
+        <RootLayout>
             <Header>
+                <HomeButton/>
             </Header>
             <Body>
-                <div className="flex flex-row items-center">
-                    <PathButton 
+                <Title text="Welcome to Traviatom worlds largest bullshit"/>
+                <div className="flex flex-row items-center w-full items-center text-center gap-4 items-between">
+                    <PathButton
                         path="play"
-                        text="answer"
+                        text="ANSWER"
                     />
                     <PathButton
                         path="create"
-                        text="ask"
+                        text="ASK"
                     />
                 </div>
             </Body>
 
-        </div>
+        </RootLayout>
     )
 }

@@ -31,7 +31,7 @@ export function LoginForm() {
   
 
   return (
-    <div className="flex flex-col items-center align-center justify-items-center bg-primary-light p-8 rounded shadow-2xl ">
+    <div className="flex flex-col items-center align-center justify-items-center bg-primary-light p-8 rounded shadow-black shadow-2xl ">
       <div className="mb-4">
         <label htmlFor="user  name" className="block text-gray-700 font-bold mb-2">
           Username

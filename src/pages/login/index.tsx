@@ -3,23 +3,20 @@ import { Header } from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
 import { LoginForm } from "@/components/LoginForm";
 import { Title } from "@/components/Title";
+import RootLayout from "@/app/_app";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-export default function Auth() {
+export default function Login() {
     return (
-        <div>
+        <RootLayout>
             <Header>
                 <HomeButton/>
-                <FontAwesomeIcon icon={faCoffee} />
             </Header>
             <Body>
                 <Title
                     text="LOGIN" />
                 <LoginForm/>
             </Body>
-        </div>
+        </RootLayout>
     );
 
 }
