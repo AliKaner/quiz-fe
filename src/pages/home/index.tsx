@@ -15,7 +15,7 @@ export default function Home() {
                 <Title text="Welcome to Traviatom worlds largest bullshit"/>
                 <div className="flex flex-row items-center w-full items-center text-center gap-4 items-between">
                     <PathButton
-                        path="play"
+                        path="quiz"
                         text="ANSWER"
                     />
                     <PathButton

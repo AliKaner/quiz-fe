@@ -9,14 +9,14 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from "querystring";
 import axios from "axios";
 
-export default function Quiz({initialQuestion, query}: any) {
+export default function Quiz({ initialQuestion, query }: any) {
   const router = useRouter();
   const { slug } = router.query;
   const [currentQuestion, setCurrentQuestion] = useState(null);
 
   useEffect(() => {
     if (slug) {
-      fetchQuestionPrivate({ slug: String(slug) });
+      fetchQuestionPrivate();
     } else {
       fetchQuestionAll();
     }
@@ -26,23 +26,24 @@ export default function Quiz({initialQuestion, query}: any) {
     try {
       const response = await getQuestionAll();
       setCurrentQuestion(response.data);
+      console.log(response)
     } catch (error) {
       console.error(error);
     }
   };
 
-
-  const fetchQuestionPrivate = async ({slug,}:{slug:string}) => {
+  const fetchQuestionPrivate = async () => {
     try {
-      const response = await getQuestionPrivate({ slug });
-      setCurrentQuestion(response.data);
+      if (typeof slug === 'string') {
+        
+        const response = await getQuestionPrivate({ slug });
+        console.log(response.data);
+        setCurrentQuestion(response.data.questions[0]);
+      }
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(initialQuestion, query)
-
-  return null
 
   return (
     <RootLayout>
@@ -58,36 +59,4 @@ export default function Quiz({initialQuestion, query}: any) {
       </Body>
     </RootLayout>
   );
-}
-
-export async function getServerSideProps({ query,}:{query:ParsedUrlQuery}) {
-  const { slug } = query;
-
-  if (slug) {
-    try {
-      const response = await fetch(`http://localhost:3000/quiz/${slug}`)
-      const initialQuestion = await response.json();
-      return {
-        props: { initialQuestion },
-      };
-    } catch (error) {
-      console.error(error);
-      return {
-        props: { initialQuestion: null },
-      };
-    }
-  } else {
-    try {
-      const response = await getQuestionAll();
-      const initialQuestion = response.data;
-      return {
-        props: { initialQuestion },
-      };
-    } catch (error) {
-      console.error(error);
-      return {
-        props: { initialQuestion: null },
-      };
-    }
-  }
 }

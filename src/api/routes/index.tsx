@@ -47,5 +47,10 @@ export const getQuestionPrivate = async ({slug,
 
 export const getQuestionAll = async () => {
     const response = await api.get(`/quiz`);
-    return response;
+    return response.data.questions;
+}
+
+export const getAllQuizes = async () => {
+  const response = await api.get('/quiz/all')
+  return response.data
 }

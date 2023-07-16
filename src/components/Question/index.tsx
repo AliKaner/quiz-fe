@@ -11,7 +11,7 @@ export function Question({ question }: { question: QuestionType }) {
         <div className="flex  flex-col items-center shadow-2xl p-8 justify-between w-full md:w-3/4 bg-secondary items-between text-white">
             <div className="p-4 text-4xl">{question.question}</div>
             <div className="flex flex-row gap-8 p-4 flex-col md:flex-row w-full bg-secondary">
-                {question.options.map((answer) => (
+                {question.options && question.options.map((answer) => (
                     <Answer onClick={answerClickHandle} answer={answer} />
                 ))}
             </div>
