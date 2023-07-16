@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from "querystring";
 import axios from "axios";
 
-export default function Quiz() {
+export default function Quiz({initialQuestion, query}: any) {
   const router = useRouter();
   const { slug } = router.query;
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -31,6 +31,7 @@ export default function Quiz() {
     }
   };
 
+
   const fetchQuestionPrivate = async ({slug,}:{slug:string}) => {
     try {
       const response = await getQuestionPrivate({ slug });
@@ -39,6 +40,9 @@ export default function Quiz() {
       console.error(error);
     }
   };
+  console.log(initialQuestion, query)
+
+  return null
 
   return (
     <RootLayout>
@@ -61,10 +65,8 @@ export async function getServerSideProps({ query,}:{query:ParsedUrlQuery}) {
 
   if (slug) {
     try {
-      console.log(slug);
-      const response = await fetch(`http://localhost:3000/${{slug: String(slug)}}`)
-      console.log(response);
-      const initialQuestion = response.json();
+      const response = await fetch(`http://localhost:3000/quiz/${slug}`)
+      const initialQuestion = await response.json();
       return {
         props: { initialQuestion },
       };
