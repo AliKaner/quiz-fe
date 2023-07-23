@@ -5,7 +5,7 @@ export default function HomeButton() {
     const router = useRouter();
 
     return (
-        <div onClick={() => router.push("home")} className="text-white text-xl  italic">
+        <div onClick={() => router.push("home")} className="text-primary font-bold text-xl  italic">
             {APP_NAME}
         </div>
     );

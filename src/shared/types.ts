@@ -8,6 +8,7 @@ export type QuizType = {
     title:string;
     id:number;
     slug:string;
+    password?:string;
     creator: {
       id:number;
       username:string;

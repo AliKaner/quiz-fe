@@ -47,10 +47,22 @@ export const getQuestionPrivate = async ({slug,
 
 export const getQuestionAll = async () => {
     const response = await api.get(`/quiz`);
-    return response.data.questions;
+    return response.data;
 }
 
 export const getAllQuizes = async () => {
   const response = await api.get('/quiz/all')
   return response.data
 }
+
+export const answerQuestion = async (
+  quizId:number|undefined,
+  userId:number|undefined,
+  answers:{question:string|undefined,answer:string|undefined}[]|undefined
+) => {
+  api.post('/response',{
+    answers,
+    quizId,
+    userId,
+  })
+} 

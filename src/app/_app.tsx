@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <ToastProvider>
-      <div lang="en" className='flex flex-col h-screen w-screen'>
+      <div  lang="en" className='bg-light flex flex-col h-screen w-screen'>
         <div className={inter.className}>{children}</div>
       </div>
     </ToastProvider>
