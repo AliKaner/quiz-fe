@@ -58,7 +58,11 @@ export default function Quiz({ initialQuestion, query }: any) {
       answerQuestion(currentQuiz?.id, userId, answers);
       if (questionIndex + 1 !== currentQuiz?.questions.length) {
         setQuestionIndex(questionIndex + 1)
+        
+      } else {
+        router.push("/home")
       }
+
     } catch (error) {
       console.error(error);
     }
@@ -72,13 +76,13 @@ export default function Quiz({ initialQuestion, query }: any) {
       </Header>
       <Body>
         {currentQuiz ? (
-          <div className="flex flex-col items-center bg-white rounded w-1/3 p-4 w-min-w-96">
-            <div className="text-center p-2 bg-gray-100 rounded w-full">{`Question ${questionIndex + 1}/${currentQuiz?.questions.length
+          <div className="flex flex-col items-center bg-white rounded w-full md:w-1/2 p-4 justify-center mt-40">
+            <div className="text-center p1 bg-gray-100 rounded w-full">{`Question ${questionIndex + 1}/${currentQuiz?.questions.length
               }`}</div>
-            <div className="">{currentQuiz?.questions[questionIndex].question}</div>
+            <div className="bg-stone-300 p-2 m-2 text-xl rounded w-full text-center">{currentQuiz?.questions[questionIndex].question}</div>
             <div className="flex flex-col sm:flex-row w-full gap-4 ">
               {currentQuiz.questions[questionIndex].options?.map((answer) => (
-                <div className={`flex-1 text-center  hover:bg-secondary rounded ${answer == currentAnswer ? ("bg-secondary") : "bg-primary"}`} onClick={() => answerHandle(answer)}>
+                <div className={`flex-1 text-xl p-2 text-center  hover:bg-secondary rounded ${answer == currentAnswer ? ("bg-secondary") : "bg-primary"}`} onClick={() => answerHandle(answer)}>
                   {answer}
                 </div>
               ))}
@@ -88,9 +92,9 @@ export default function Quiz({ initialQuestion, query }: any) {
         ) : (
           <div>Loading...</div>
         )}
-        <div className="flex items-reverse  w-full w-1/3 mt-2 w-min-w-96">
+        <div className="flex flex-row-reverse w-full md:w-1/2 p- mt-2">
           {currentAnswer ? (
-            <button className="bg-primary hover:bg-secondary w-24 rounded" onClick={postAnswer}>
+            <button className="bg-secondary text-white  hover:bg-secondary w-24 text-xl p-2 rounded" onClick={postAnswer}>
               Submit
             </button>
           ) : null}

@@ -37,7 +37,7 @@ export default function Home() {
                 <HomeButton />
             </Header>
             <Body>
-                <div className="flex flex-col h-full w-full md:w-1/2 items-center m-10">
+                <div className="flex flex-col h-full w-full md:w-1/2 items-center  m-10">
 
                     <div className="flex flex-row items-center w-full items-center text-center gap-4 items-between m-5 ">
                         <PathButton
