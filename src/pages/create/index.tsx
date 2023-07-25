@@ -24,7 +24,6 @@ export default function Home() {
             </Header>
             <Body>
                 <Title text="ASK QUESTIONS" />
-                <QuizShowcase quizes={showQuizes.slice(0, 5)} />
                 <QuestionForm />
             </Body>
 

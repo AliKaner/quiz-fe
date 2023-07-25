@@ -6,11 +6,12 @@ import HomeButton from "@/components/HomeButton";
 import RootLayout from "@/app/_app";
 import { useRouter } from 'next/router';
 import { QuizType } from "@/shared/types";
+import { useToast } from "@/hooks/useToast";
 
 export default function Quiz({ initialQuestion, query }: any) {
   const router = useRouter();
   const { slug } = router.query;
-  // const [currentQuestion, setCurrentQuestion] = useState<QuestionType>({ question: "", answers: [] });
+  const { showToast } = useToast();
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [userId, setUserId] = useState(0);
   const [currentQuiz, setCurrentQuiz] = useState<QuizType>();
@@ -55,7 +56,7 @@ export default function Quiz({ initialQuestion, query }: any) {
     try {
       const answers = [{ question: currentQuiz?.questions[questionIndex]?.question, answer: currentAnswer }];
       answerQuestion(currentQuiz?.id, userId, answers);
-      if (questionIndex+1 !== currentQuiz?.questions.length) {
+      if (questionIndex + 1 !== currentQuiz?.questions.length) {
         setQuestionIndex(questionIndex + 1)
       }
     } catch (error) {
@@ -77,23 +78,23 @@ export default function Quiz({ initialQuestion, query }: any) {
             <div className="">{currentQuiz?.questions[questionIndex].question}</div>
             <div className="flex flex-col sm:flex-row w-full gap-4 ">
               {currentQuiz.questions[questionIndex].options?.map((answer) => (
-                <div className={`flex-1 text-center  hover:bg-secondary rounded ${answer == currentAnswer ? ("bg-secondary"):"bg-primary"}`} onClick={() => answerHandle(answer)}>
+                <div className={`flex-1 text-center  hover:bg-secondary rounded ${answer == currentAnswer ? ("bg-secondary") : "bg-primary"}`} onClick={() => answerHandle(answer)}>
                   {answer}
                 </div>
               ))}
             </div>
-            
+
           </div>
         ) : (
           <div>Loading...</div>
         )}
         <div className="flex items-reverse  w-full w-1/3 mt-2 w-min-w-96">
-              {currentAnswer ? (
-                <button className="bg-primary hover:bg-secondary w-24 rounded" onClick={postAnswer}>
-                  Submit
-                </button>
-              ) : null}
-            </div>
+          {currentAnswer ? (
+            <button className="bg-primary hover:bg-secondary w-24 rounded" onClick={postAnswer}>
+              Submit
+            </button>
+          ) : null}
+        </div>
       </Body>
     </RootLayout>
   );
